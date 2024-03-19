@@ -5,12 +5,12 @@ using Verse;
 namespace JecsHuntingWithTraps;
 
 /*
- * 
+ *
  *  Harmony Classes
  *  ===============
  *  Harmony is a system developed by pardeike (aka Brrainz).
- *  It allows us to use pre/post method patches instead of using detours.
- * 
+ *  It allows us to use pre- / post-method patches instead of using detours.
+ *
  */
 [StaticConstructorOnStartup]
 internal static class HarmonyPatches
@@ -19,9 +19,9 @@ internal static class HarmonyPatches
     /*
      * Contains 1 Harmony patch.
      * ===================
-     * 
+     *
      * [POSTFIX] Building_Trap -> KnowsOfTrap
-     * 
+     *
      */
     static HarmonyPatches()
     {
@@ -60,43 +60,4 @@ internal static class HarmonyPatches
             __result = 0.95f;
         }
     }
-
-    //public static void SpringSub_PreFix(Building_TrapDamager __instance, Pawn p)
-    //{
-    //    if ((p?.RaceProps?.Animal ?? false) && (p?.Faction != Faction.OfPlayerSilentFail))
-    //    {
-    //        BodyPartHeight height = (Rand.Value >= 0.666f) ? BodyPartHeight.Middle : BodyPartHeight.Top;
-    //        int num = Mathf.RoundToInt(__instance.GetStatValue(StatDefOf.TrapMeleeDamage, true) * new FloatRange(6.0f, 8.0f).RandomInRange);
-    //        int randomInRange = new IntRange(1, 3).RandomInRange;
-    //        for (int i = 0; i < randomInRange; i++)
-    //        {
-    //            if (num <= 0)
-    //            {
-    //                break;
-    //            }
-    //            int num2 = Mathf.Max(1, Mathf.RoundToInt(Rand.Value * (float)num));
-    //            num -= num2;
-    //            DamageInfo dinfo = new DamageInfo(DamageDefOf.Stab, num2, -1f, __instance, null, null, DamageInfo.SourceCategory.ThingOrUnknown);
-    //            if (Rand.Value > 0.05f)
-    //            {
-    //                dinfo.SetHitPart(p?.health?.hediffSet?.GetNotMissingParts()?.FirstOrDefault(
-    //                x => (x?.def?.tags?.Contains("MovingLimbCore") ?? false) ||
-    //                     (x?.def?.tags?.Contains("MovingLimbSegment") ?? false)
-    //                ));
-    //            }
-    //            else
-    //            {
-    //                dinfo.SetHitPart(p?.health?.hediffSet?.GetNotMissingParts()?.FirstOrDefault(
-    //                x => (x?.def?.tags?.Contains("MovingLimbDigit") ?? false)
-    //                ));
-    //            }
-    //            if (dinfo.HitPart == null)
-    //            {
-    //                //Log.Message("Null");
-    //                dinfo.SetBodyRegion(height, BodyPartDepth.Outside);
-    //            }
-    //            p.TakeDamage(dinfo);
-    //        }
-    //    }
-    //}
 }

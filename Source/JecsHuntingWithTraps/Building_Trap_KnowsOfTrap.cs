@@ -18,7 +18,6 @@ public static class Building_Trap_KnowsOfTrap
             return;
         }
 
-        //Log.Message("Triggered2");
         __result = false; // Was true
     }
 }
